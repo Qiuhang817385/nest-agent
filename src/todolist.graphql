@@ -1,0 +1,32 @@
+type Item {
+  id: String
+  componentCode: Int
+  movieId: Int
+  title: String
+  year: Int
+}
+
+input CreateTodoItemInput {
+  id: String!
+  componentCode: Int
+  movieId: Int
+  title: String
+}
+
+input UpdateTodoItemInput {
+  id: String!
+  componentCode: Int
+  movieId: Int
+  title: String
+}
+
+type Query {
+  todolist(page: Int, pageSize: Int): [Item]!
+  queryById(id: String!, componentCode: Int!): Item
+}
+
+type Mutation {
+  createTodoItem(todoItem: CreateTodoItemInput!): Item!
+  updateTodoItem(todoItem: UpdateTodoItemInput!): Item!
+  removeTodoItem(id: String!, componentCode: Int!): String!
+}
